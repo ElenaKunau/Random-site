@@ -58,3 +58,29 @@ function applyRandomDesign() {
 }
 
 applyRandomDesign();
+
+  }
+
+  const decorations = document.getElementById("decorations");
+  decorations.innerHTML = "";
+  const numDecor = randomInt(2, 5);
+  for (let i = 0; i < numDecor; i++) {
+    const circle = document.createElement("div");
+    circle.style.width = circle.style.height = randomInt(100, 250) + "px";
+    circle.style.top = randomInt(0, 90) + "vh";
+    circle.style.left = randomInt(0, 90) + "vw";
+    circle.style.background = getRandom(gradients);
+    decorations.appendChild(circle);
+  }
+
+  // Одна из версий с черным фоном
+  if (Math.random() < 0.25) {
+    document.body.style.background = "#000000";
+    document.body.style.color = "#ffffff";
+    document.querySelectorAll("img").forEach(img => {
+      img.style.border = "2px solid white";
+    });
+  }
+}
+
+applyRandomDesign();
